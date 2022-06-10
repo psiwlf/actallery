@@ -2,6 +2,9 @@
   "name": "actallery",
   "private": true,
   "version": "0.0.0",
+  "prettier":{
+    "singleQuote": true
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

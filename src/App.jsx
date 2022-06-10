@@ -1,45 +1,25 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import { useActorFetch } from './useActorFetch';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+  const [state, setState] = useState('');
+  // const headers = { 'Content-Type': 'application/json' }
+  const res = useActorFetch(state)
+  const search = async () => {
+    // const url = 'https://rest.bandsintown.com/artists/' + state + '?app_id=abc'
+    // // const url = 'https://rest.bandsintown.com/artists/post%20malone?app_id=abc'
+    // const res = await (await fetch(url)).json()
+    console.log('fetched', res);
+  } 
+  return <div className="App">Hello Motive
+  <input type='text' name='actor' 
+  onChange={event => setState(event.currentTarget.value)}
+  value={state}
+  />
+  {/* <button name='search' onClick={() => <h2>{'hhhjkkjkk'}</h2>}>Print</button> */}
+  <button name='search' onClick={search}>Print</button>
+  </div>;
 }
 
-export default App
+export default App;
