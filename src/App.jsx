@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { useArtistFetch } from './useArtistFetch';
+import SearchView from './views/SearchView';
 
 function App() {
   const [state, setState] = useState('');
@@ -19,6 +20,7 @@ function App() {
   />
   {/* <button name='search' onClick={() => <h2>{'hhhjkkjkk'}</h2>}>Print</button> */}
   <button name='search' onClick={search}>Print</button>
+  <SearchView props={res} />
   </div>;
 }
 

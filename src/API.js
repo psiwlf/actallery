@@ -9,7 +9,7 @@ import {
       return await (await fetch(endpoint)).json();
     },
     fetchEvents: async (searchTerm) => {
-      const endpoint = API_URL + searchTerm + API_KEY
+      const endpoint = API_URL + searchTerm + 'events/' + API_KEY
       return await (await fetch(endpoint)).json();
     },
   };

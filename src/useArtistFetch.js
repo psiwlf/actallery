@@ -13,8 +13,9 @@ export const useArtistFetch = artistName => {
         setError(false);
 
         const artist = await API.fetchArtist(artistName);
+        const events = await API.fetchEvents(artistName);
 
-        setState(artist);
+        setState({artist, events});
         setLoading(false);
 
       } catch (error) {
