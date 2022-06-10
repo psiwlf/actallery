@@ -4,7 +4,7 @@ import {
   } from './config';
   
   const apiSettings = {
-    fetchActor: async (searchTerm) => {
+    fetchArtist: async (searchTerm) => {
       const endpoint = API_URL + searchTerm + API_KEY
       return await (await fetch(endpoint)).json();
     },

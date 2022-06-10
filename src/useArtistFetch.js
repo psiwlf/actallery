@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
 import API from './API';
 
-export const useActorFetch = actorName => {
+export const useArtistFetch = artistName => {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchActor = async () => {
+    const fetchArtist = async () => {
       try {
         setLoading(true);
         setError(false);
 
-        const actor = await API.fetchActor(actorName);
+        const artist = await API.fetchArtist(artistName);
 
-        setState(actor);
+        setState(artist);
         setLoading(false);
 
       } catch (error) {
         setError(true);
       }
     };
-    fetchActor();
-  }, [actorName]);
+    fetchArtist();
+  }, [artistName]);
 
   return { state, loading, error };
 };

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import { useActorFetch } from './useActorFetch';
+import { useArtistFetch } from './useArtistFetch';
 
 function App() {
   const [state, setState] = useState('');
   // const headers = { 'Content-Type': 'application/json' }
-  const res = useActorFetch(state)
+  const res = useArtistFetch(state)
   const search = async () => {
     // const url = 'https://rest.bandsintown.com/artists/' + state + '?app_id=abc'
     // // const url = 'https://rest.bandsintown.com/artists/post%20malone?app_id=abc'
@@ -13,7 +13,7 @@ function App() {
     console.log('fetched', res);
   } 
   return <div className="App">Hello Motive
-  <input type='text' name='actor' 
+  <input type='text' name='artist' 
   onChange={event => setState(event.currentTarget.value)}
   value={state}
   />
