@@ -5,7 +5,7 @@ import EventsComponent from '../components/EventsComponent';
 import SearchBar from '../components/SearchBar';
 import { useArtistFetch } from '../useArtistFetch';
 
-const SearchView = (props) => {
+const SearchView = () => {
   // console.log('propss', props.state)
   const [searchTerm, setSearchTerm] = useState('');
   const { state, loading, error } = useArtistFetch(searchTerm);
@@ -149,8 +149,9 @@ const SearchView = (props) => {
       <SearchBar setSearchTerm={setSearchTerm} />
       {/* {console.log('search term is: ', searchTerm)} */}
       {/* {console.log('state artist is: ', state.artist)} */}
+      {/* {console.log('----state---: ', state)} */}
       {state.artist ? <ArtistComponent artist={state?.artist} /> : ''}
-      <EventsComponent events={event1} />
+      {state.events ? <EventsComponent events={state.events} /> : ''}
     </div>
   );
 };

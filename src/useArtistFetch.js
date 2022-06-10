@@ -14,7 +14,6 @@ export const useArtistFetch = artistName => {
 
         const artist = await API.fetchArtist(artistName);
         const events = await API.fetchEvents(artistName);
-
         setState({artist, events});
         setLoading(false);
 

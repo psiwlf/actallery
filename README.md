@@ -18,3 +18,6 @@
 - Dark theme
 - Cache or data persistance on reloads
 - Deployment
+
+## Fixes
+- pick fb link from links array using Array.filter()
