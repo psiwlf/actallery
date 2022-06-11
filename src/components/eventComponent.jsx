@@ -10,12 +10,15 @@ import {
 } from '@chakra-ui/react';
 import { FaCity, FaLocationArrow, FaRegCalendarAlt } from 'react-icons/fa';
 const EventComponent = ({ event }) => {
-  // venue
-  // city
-  // country
-  // datetime
   const { venue, datetime: eventDate } = event;
   const { name: place, city, country } = venue;
+
+  const fields = [
+    { text: 'Venue', value: place, icon: FaLocationArrow },
+    { text: 'City', value: city, icon: FaCity },
+    { text: 'Country', value: country, icon: FaCity },
+    { text: 'Date', value: eventDate.split('T')[0], icon: FaRegCalendarAlt },
+  ];
   return (
     <Box
       maxW={'400px'}
@@ -27,36 +30,17 @@ const EventComponent = ({ event }) => {
     >
       <Stack p={6} color={useColorModeValue('gray.800', 'white')}>
         <List spacing={3}>
-          <ListItem display="flex" alignItems="center">
-            <ListIcon as={FaLocationArrow} color="green.400" />
-            <Stack direction={'row'} align={'center'}>
-              <Text color={'gray.500'}>Venue</Text>
-              <Text fontWeight={600}>{place}</Text>
-            </Stack>
-          </ListItem>
-          <ListItem display="flex" alignItems="center">
-            <ListIcon as={FaCity} color="green.400" />
-            <Stack direction={'row'} align={'center'} justify="flex-start">
-              <Text color={'gray.500'}>City</Text>
-              <Text fontWeight={600}>{city}</Text>
-            </Stack>
-          </ListItem>
-          <ListItem display="flex" alignItems="center">
-            <ListIcon as={FaCity} color="green.400" />
-            <Stack direction={'row'} align={'center'}>
-              <Text color={'gray.500'}>Country</Text>
-              <Text fontWeight={600}>{country}</Text>
-            </Stack>
-          </ListItem>
-          <ListItem display="flex" alignItems="center">
-            <ListIcon as={FaRegCalendarAlt} color="green.400" />
-            <Stack direction={'row'} align={'center'}>
-              <Text color={'gray.500'}>Date</Text>
-              <Text fontSize={'2xl'} fontWeight={600}>
-                {eventDate.split('T')[0]}
-              </Text>
-            </Stack>
-          </ListItem>
+          {fields.map((e) => {
+            return (
+              <ListItem key={e.id} display="flex" alignItems="center">
+                <ListIcon as={e.icon} color="green.400" />
+                <Stack direction={'row'} align={'center'}>
+                  <Text color={'gray.500'}>{e.text}</Text>
+                  <Text fontWeight={600}>{e.value}</Text>
+                </Stack>
+              </ListItem>
+            );
+          })}
         </List>
       </Stack>
     </Box>
