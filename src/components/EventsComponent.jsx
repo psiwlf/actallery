@@ -14,19 +14,23 @@ const EventsComponent = ({ events }) => {
   return (
     <>
       {/* <VStack w="full" h="full" p={8} spacing={8} alignItems="flex-start"> */}
-      <VStack w="full" h="full" p={8} spacing={8}>
-        <VStack spacing={3} alignItems="flex-start">
-          <Heading size="2xl">Upcoming Concerts</Heading>
-          {events.length < 1 && <Text>No upcoming concerts found</Text>}
+      {events.errorMessage ? (
+        <Heading size="2xl">Artist Not Found</Heading>
+      ) : (
+        <VStack w="full" h="full" p={8} spacing={8}>
+          <VStack spacing={3} alignItems="flex-start">
+            <Heading size="2xl">Upcoming Concerts</Heading>
+            {events?.length < 1 && <Text>No upcoming concerts found</Text>}
+          </VStack>
+          <SimpleGrid columns={2} columnGap={3} rowGap={3}>
+            {events?.map((e) => (
+              <GridItem colSpan={colSpan}>
+                <EventComponent event={e} />
+              </GridItem>
+            ))}
+          </SimpleGrid>
         </VStack>
-        <SimpleGrid columns={2} columnGap={3} rowGap={3}>
-          {events.map((e) => (
-            <GridItem colSpan={colSpan}>
-              <EventComponent event={e} />
-            </GridItem>
-          ))}
-        </SimpleGrid>
-      </VStack>
+      )}
     </>
   );
 };

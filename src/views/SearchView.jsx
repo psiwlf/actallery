@@ -1,3 +1,4 @@
+import { VStack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import ArtistComponent from '../components/artistComponent';
 import EventsComponent from '../components/EventsComponent';
@@ -10,10 +11,13 @@ const SearchView = () => {
 
   return (
     <div>
+      <VStack w='full' h='full' p={4} spacing={4} alignItems='center'>
+
       <h1>Search Artists</h1>
       <SearchBar setSearchTerm={setSearchTerm} />
       {state.artist ? <ArtistComponent artist={state?.artist} /> : ''}
-      {state.events ? <EventsComponent events={state.events} /> : ''}
+      {state.events ? <EventsComponent events={state?.events} /> : ''}
+      </VStack>
     </div>
   );
 };

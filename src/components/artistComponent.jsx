@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Button,
+  Center,
   Flex,
   Heading,
   Image,
@@ -19,64 +20,64 @@ const ArtistComponent = ({ artist }) => {
   // image_url OR thumb_url generally same but different size
   // name
   //
-  // console.log('props in artist', artist);
+  if (artist.error) return;
   const {
     name,
     links: socialLinks,
     thumb_url: thumbImg,
     image_url: bgImg,
   } = artist;
-  const fbURL = socialLinks.filter((e) => e.type === 'facebook')[0].url;
+  const fbURL = socialLinks?.filter((e) => e.type === 'facebook')[0].url;
   return (
     <Box w="100%" borderWidth="1px" borderRadius="lg">
-      <Stack
-        borderWidth="1px"
-        borderRadius="lg"
-        justifyContent="center"
-        w={{ sm: '100%', md: '60%' }}
-        height={{ sm: '100%', md: '20rem' }}
-        direction={{ base: 'column', md: 'row' }}
-        bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'2xl'}
-        padding={4}
-      >
-        <Flex flex={1}>
-          <Image
-            objectFit="contain"
-            borderRadius="lg"
-            boxShadow="2xl"
-            boxSize="100%"
-            src={thumbImg}
-          />
-        </Flex>
+      <Center>
         <Stack
-          flex={1}
-          flexDirection="column"
+          borderWidth="1px"
+          borderRadius="lg"
           justifyContent="center"
-          alignItems="center"
-          p={1}
-          pt={2}
+          w={{ sm: '90%', md: '70%' }}
+          height={{ sm: '100%', md: '20rem' }}
+          direction={{ base: 'column', md: 'row' }}
+          bg={useColorModeValue('white', 'gray.900')}
+          boxShadow={'2xl'}
+          padding={4}
         >
-          <Heading fontSize={'2xl'} fontFamily={'body'}>
-            {name}
-          </Heading>
-          <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
-            Music Artist
-          </Text>
-          <Link
-            href={fbURL}
-            color={'blue.400'}
-            isExternal="true"
-            style={{ textDecoration: 'none' }}
+          <Flex flex={1}>
+            <Image
+              objectFit="contain"
+              borderRadius="lg"
+              boxShadow="2xl"
+              boxSize="100%"
+              src={thumbImg}
+            />
+          </Flex>
+          <Stack
+            flex={1}
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            p={1}
+            pt={2}
           >
-            <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
-              Connect
-              {/* <Center>
-          </Center> */}
-            </Button>
-          </Link>
+            <Heading fontSize={'2xl'} fontFamily={'body'}>
+              {name}
+            </Heading>
+            <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
+              Music Artist
+            </Text>
+            <Link
+              href={fbURL}
+              color={'blue.400'}
+              isExternal="true"
+              style={{ textDecoration: 'none' }}
+            >
+              <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
+                Connect
+              </Button>
+            </Link>
+          </Stack>
         </Stack>
-      </Stack>
+      </Center>
     </Box>
   );
 };
