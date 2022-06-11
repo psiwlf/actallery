@@ -23,11 +23,13 @@ const ArtistComponent = ({ artist }) => {
   if (artist.error) return;
   const {
     name,
-    links: socialLinks,
+    links,
     thumb_url: thumbImg,
     image_url: bgImg,
   } = artist;
-  const fbURL = socialLinks?.filter((e) => e.type === 'facebook')[0].url;
+  const fbURL = links
+    ? links.filter((e) => e.type === 'facebook')[0].url
+    : null;
   return (
     <Box w="100%" borderWidth="1px" borderRadius="lg">
       <Center>
@@ -65,16 +67,18 @@ const ArtistComponent = ({ artist }) => {
             <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
               Music Artist
             </Text>
-            <Link
-              href={fbURL}
-              color={'blue.400'}
-              isExternal="true"
-              style={{ textDecoration: 'none' }}
-            >
-              <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
-                Connect
-              </Button>
-            </Link>
+            {fbURL && (
+              <Link
+                href={fbURL}
+                color={'blue.400'}
+                isExternal="true"
+                style={{ textDecoration: 'none' }}
+              >
+                <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
+                  Connect
+                </Button>
+              </Link>
+            )}
           </Stack>
         </Stack>
       </Center>
