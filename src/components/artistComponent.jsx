@@ -1,14 +1,16 @@
 import React from 'react';
-import { Badge, Box, Button,
-  Center,
+import {
+  Box,
+  Button,
   Flex,
   Heading,
   Image,
   Link,
   Stack,
   Text,
-  useColorModeValue, } from '@chakra-ui/react';
-  import { FaFacebook } from 'react-icons/fa';
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { FaFacebook } from 'react-icons/fa';
 const ArtistComponent = ({ artist }) => {
   // const  = props.facebook_page_url;
   // facebook_page_url
@@ -20,13 +22,13 @@ const ArtistComponent = ({ artist }) => {
   // console.log('props in artist', artist);
   const {
     name,
-    facebook_page_url: fbURL,
+    links: socialLinks,
     thumb_url: thumbImg,
     image_url: bgImg,
   } = artist;
-  console.log('name in artist', name);
+  const fbURL = socialLinks.filter((e) => e.type === 'facebook')[0].url;
   return (
-    <Box w='100%' borderWidth='1px' borderRadius='lg'>
+    <Box w="100%" borderWidth="1px" borderRadius="lg">
       <Stack
         borderWidth="1px"
         borderRadius="lg"
@@ -36,16 +38,15 @@ const ArtistComponent = ({ artist }) => {
         direction={{ base: 'column', md: 'row' }}
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
-        padding={4}>
+        padding={4}
+      >
         <Flex flex={1}>
           <Image
             objectFit="contain"
-            borderRadius='lg'
-            boxShadow='2xl'
+            borderRadius="lg"
+            boxShadow="2xl"
             boxSize="100%"
-            src={
-              thumbImg
-            }
+            src={thumbImg}
           />
         </Flex>
         <Stack
@@ -54,29 +55,29 @@ const ArtistComponent = ({ artist }) => {
           justifyContent="center"
           alignItems="center"
           p={1}
-          pt={2}>
+          pt={2}
+        >
           <Heading fontSize={'2xl'} fontFamily={'body'}>
             {name}
           </Heading>
           <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
             Music Artist
           </Text>
-          <Link href={fbURL} color={'blue.400'} isExternal='true' style={{ textDecoration: "none" }}>
-          <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
+          <Link
+            href={fbURL}
+            color={'blue.400'}
+            isExternal="true"
+            style={{ textDecoration: 'none' }}
+          >
+            <Button colorScheme={'facebook'} leftIcon={<FaFacebook />}>
               Connect
-          {/* <Center>
+              {/* <Center>
           </Center> */}
-        </Button>
+            </Button>
           </Link>
         </Stack>
       </Stack>
-      {/* <img src={thumbImg} />
-      <h3>Name: {name}</h3>
-      <div>Facebook Url: {fbURL}</div> */}
-
     </Box>
-    // <div style={{ border: '1px solid brown' }}>
-    // </div>
   );
 };
 
