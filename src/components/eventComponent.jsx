@@ -21,7 +21,6 @@ const EventComponent = ({ event }) => {
   ];
   return (
     <Box
-      maxW={'400px'}
       w={'full'}
       bg={useColorModeValue('white', 'gray.800')}
       boxShadow={'2xl'}
