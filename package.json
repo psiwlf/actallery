@@ -2,7 +2,7 @@
   "name": "actallery",
   "private": true,
   "version": "0.0.0",
-  "prettier":{
+  "prettier": {
     "singleQuote": true
   },
   "scripts": {
@@ -11,8 +11,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.2.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^6",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

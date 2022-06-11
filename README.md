@@ -9,7 +9,7 @@
 - Vite
 - React
 - Chakra UI
-- Jest for testing
+- Jest for testing/ not very compatible so while searching, came acroos vitest, planning to use it instead
 
 ## TODOs
 - Basic requirements
@@ -21,3 +21,6 @@
 
 ## Fixes
 - pick fb link from links array using Array.filter()
+
+
+https://hung.dev/jest-vite
