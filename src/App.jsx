@@ -7,7 +7,10 @@ function App() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div className="App">
-      <Button onClick={toggleColorMode}>
+      <Button
+        onClick={toggleColorMode}
+        colorScheme={colorMode === 'light' ? 'yellow' : 'orange'}
+      >
         {colorMode === 'light' ? <FaMoon /> : <FaSun />}
       </Button>
       <SearchView />
