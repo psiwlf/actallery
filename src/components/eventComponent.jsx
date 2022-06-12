@@ -29,9 +29,9 @@ const EventComponent = ({ event }) => {
     >
       <Stack p={6} color={useColorModeValue('gray.800', 'white')}>
         <List spacing={3}>
-          {fields.map((e) => {
+          {fields.map((e, idx) => {
             return (
-              <ListItem key={e.id} display="flex" alignItems="center">
+              <ListItem key={idx} display="flex" alignItems="center">
                 <ListIcon as={e.icon} color="green.400" />
                 <Stack direction={'row'} align={'center'}>
                   <Text color={'gray.500'}>{e.text}</Text>

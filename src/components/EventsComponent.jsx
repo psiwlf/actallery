@@ -23,8 +23,8 @@ const EventsComponent = ({ events }) => {
             {events?.length < 1 && <Text>No upcoming concerts found</Text>}
           </VStack>
           <SimpleGrid columns={2} columnGap={3} rowGap={3}>
-            {events?.map((e) => (
-              <GridItem colSpan={colSpan}>
+            {events?.map((e, idx) => (
+              <GridItem key={idx} colSpan={colSpan}>
                 <EventComponent event={e} />
               </GridItem>
             ))}
