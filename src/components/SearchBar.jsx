@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-// Image
-// import searchIcon from '../../images/search-icon.svg';
-// Styles
-// import { Wrapper, Content } from './SearchBar.styles';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { useState, useEffect, useRef } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 // this is a controlled component
 const SearchBar = ({ setSearchTerm }) => {
@@ -26,19 +24,16 @@ const SearchBar = ({ setSearchTerm }) => {
   }, [setSearchTerm, state]);
 
   return (
-    // <Wrapper>
-    //   <Content>
-    <div>
-
-        {/* <img src={searchIcon} alt='search-icon' /> */}
-        <input type='text' placeholder='Search Artist'
-          // inline function below, because we want to send parameter
-          onChange={event => setState(event.currentTarget.value)}
-          value={state}
-          />
-          </div>
-    //   </Content>
-    // </Wrapper>
+    <InputGroup>
+      <InputLeftElement pointerEvents="none" children={<FaSearch />} />
+      <Input
+        type="text"
+        placeholder="Search Artist"
+        _placeholder={{ opacity: 1, color: 'inherit' }}
+        value={state}
+        onChange={(event) => setState(event.currentTarget.value)}
+      />
+    </InputGroup>
   );
 };
 
