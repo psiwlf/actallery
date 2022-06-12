@@ -37,8 +37,8 @@ const ArtistComponent = ({ artist }) => {
           borderWidth="1px"
           borderRadius="lg"
           justifyContent="center"
-          w={{ sm: '90%', md: '70%' }}
-          height={{ sm: '100%', md: '20rem' }}
+          w={{ sm: '70%', md: '45rem' }}
+          height={{ sm: '60%', md: '23rem' }}
           direction={{ base: 'column', md: 'row' }}
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
