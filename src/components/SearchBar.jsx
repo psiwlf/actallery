@@ -24,7 +24,7 @@ const SearchBar = ({ setSearchTerm }) => {
   }, [setSearchTerm, state]);
 
   return (
-    <InputGroup>
+    <InputGroup w={{ sm: '70%', md: '45rem' }}>
       <InputLeftElement pointerEvents="none" children={<FaSearch />} />
       <Input
         type="text"
