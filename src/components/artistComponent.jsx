@@ -21,17 +21,12 @@ const ArtistComponent = ({ artist }) => {
   // name
   //
   if (artist.error) return;
-  const {
-    name,
-    links,
-    thumb_url: thumbImg,
-    image_url: bgImg,
-  } = artist;
+  const { name, links, thumb_url: thumbImg } = artist;
   const fbURL = links
     ? links.filter((e) => e.type === 'facebook')[0].url
     : null;
   return (
-    <Box w="100%" borderWidth="1px" borderRadius="lg">
+    <Box w="100%">
       <Center>
         <Stack
           borderWidth="1px"
