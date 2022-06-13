@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from './API';
+import API from '../API';
 
 export const useArtistFetch = (artistName) => {
   const [state, setState] = useState({});
