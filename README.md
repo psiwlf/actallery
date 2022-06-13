@@ -21,6 +21,3 @@
 
 ## Fixes
 - pick fb link from links array using Array.filter() [1]
-
-
-https://hung.dev/jest-vite
