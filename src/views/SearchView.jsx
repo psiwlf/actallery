@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ArtistComponent from '../components/artistComponent';
 import EventsComponent from '../components/EventsComponent';
 import SearchBar from '../components/SearchBar';
-import { useArtistFetch } from '../useArtistFetch';
+import { useArtistFetch } from '../hooks/useArtistFetch';
 
 const SearchView = () => {
   const [searchTerm, setSearchTerm] = useState('');
