@@ -4,7 +4,8 @@
     "singleQuote": true
   },
 ```
-
+## How To
+yarn install
 ## Tech
 - Vite
 - React
