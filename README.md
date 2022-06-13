@@ -1,9 +1,11 @@
 # Actallery
 A gallery for musicians
 
+Visit the app: [Actallery](https://actallery.web.app)
+
 <br/>
 
-## How To
+## How To Run
 1. cd into the root of the dir, where `package.json` file sits.
 
 2. install dependencies
