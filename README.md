@@ -47,7 +47,7 @@ $ yarn coverage
 - Testing ✅
 - Dark theme ✅
 - Cache or data persistance on reloads ✅
-- Deployment
+- Deployment ✅
 
 <br/>
 
