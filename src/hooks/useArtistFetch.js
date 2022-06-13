@@ -16,11 +16,9 @@ export const useArtistFetch = (artistName) => {
         const events = await API.fetchEvents(artistName);
         setState({ artist, events });
         if ('caches' in window) {
-          // Opening given cache and putting our data into it
+          // pening given cache and putting our data into it
           caches.open('artistState').then((cache) => {
             cache.put('/', new Response(JSON.stringify({ artist, events })));
-            // cache.
-            // alert('Data Added into cache!')
           });
         }
         setLoading(false);

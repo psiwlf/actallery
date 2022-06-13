@@ -13,13 +13,6 @@ import {
 } from '@chakra-ui/react';
 import { FaFacebook } from 'react-icons/fa';
 const ArtistComponent = ({ artist }) => {
-  // const  = props.facebook_page_url;
-  // facebook_page_url
-  // "links": [{"type": "website", "url": "http://www.postmalone.com/"},
-  //  {"type": "facebook", "url": "https://www.facebook.com/postmalone"}]
-  // image_url OR thumb_url generally same but different size
-  // name
-  //
   if (artist.error) return;
   const { name, links, thumb_url: thumbImg } = artist;
   const fbURL = links

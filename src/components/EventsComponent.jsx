@@ -12,9 +12,7 @@ const EventsComponent = ({ events }) => {
   // below  is 1/3 syntax for responsiveness i.e. using useBreakpointValue hook
   const colSpan = useBreakpointValue({ base: 2, md: 1 });
   return (
-    <>
-      {/* <VStack w="full" h="full" p={8} spacing={8} alignItems="flex-start"> */}
-      {events.errorMessage ? (
+      events.errorMessage ? (
         <Heading size="2xl">Artist Not Found</Heading>
       ) : (
         <VStack w="full" h="full" p={8} spacing={8}>
@@ -32,8 +30,7 @@ const EventsComponent = ({ events }) => {
             ))}
           </SimpleGrid>
         </VStack>
-      )}
-    </>
+      )
   );
 };
 
